@@ -63,5 +63,103 @@ while (p>-1):
 print(s.count("tigres")) 
 
 
+#Parâmetro opcional (valor padrão). Crie uma função que faz uma saudacao para uma pessoa.
+# Os parâmetros são nome e prefixo da saudação. Assuma o prefixo "Olá", caso não seja fornecido o prefixo da saudação.
+
+def saudacao(nome, prefixo="Olá"):
+    return f"{prefixo} {nome}!"
+print(saudacao("João"))
+print(saudacao("Maria", "Oi"))
+
+# Nomeação de parâmetros.
+# Crie uma função que receba a largura e a altura como parâmetros
+# e retorne o cálculo da área do retângulo. Utilize a nomeação de parâmetros.
+# Chame a função só com os parâmetros; com um parâmetro nomeado; e com dois parâmetros nomeados.
+
+def area_retangulo(largura, altura):
+    return largura * altura
+
+print(area_retangulo(10, 5))
+print(area_retangulo(largura=10, altura=5))
+print(area_retangulo(altura=5, largura=10))
 
 
+#Packing de parâmetros (*args). 
+# Crie uma função que some todos os números passados
+# como parâmetros para qualquer quantidade de números.
+# Use o empacotamento. Teste a função com diferentes quantidades de parâmetros.
+
+def somar_numeros(*args):
+    total = 0
+    for num in args:
+        total += num
+    return total
+
+print(somar_numeros(1, 2, 3))
+print(somar_numeros(10, 20, 30, 40))
+print(somar_numeros(5))
+
+
+# Unpacking de parâmetros. 
+# Crie uma função que receba dois parâmetros:
+# base e expoente, e que calcule a potência da base pelo expoente.
+# A passagem de parâmetros será via o desempacotamento de uma lista
+# com exatamente dois valores.
+# Teste também o mesmo desempacotamento com dicionário com exatamente duas chaves-valores.
+
+def potencia(base, expoente):
+    return base ** expoente
+
+
+lista = [2, 3]
+print(potencia(*lista))
+
+dicionario = {"base": 2, "expoente": 3}
+print(potencia(**dicionario))
+
+
+# Função como parâmetro. Crie duas funções que calculem, respectivamente,
+# o dobro e o quadrado de um número. Crie outra função que receba como parâmetro um valor e uma função,
+# e que aplique essa função do parâmetro neste valor. Teste passado a função "dobro" e a função "quadrado".
+def dobro(x):
+    return 2 * x
+
+def quadrado(x):
+    return x ** 2
+
+def aplicar_funcao(valor, funcao):
+    return funcao(valor)
+
+print(aplicar_funcao(5, dobro))
+print(aplicar_funcao(5, quadrado))
+
+# Recursão. Crie uma função recursiva que receba um valor inteiro como parâmetro e 
+# implemente a operação de multiplicação somente com base na operação de adição.
+def multiplicacao(a, b):
+    if b == 0:
+        return 0
+    elif b > 0:
+        return a + multiplicacao(a, b - 1)
+    else:
+        return -multiplicacao(a, -b)
+print(multiplicacao(5, 3))
+print(multiplicacao(5, -3))
+
+
+# Várias funções como parâmetros.
+# Crie uma função chamada pipeline(x, *funcs) que aplique várias funções em sequência.
+# Ou seja, "*funcs" vai associar uma sequência de diversas funções, inclusive nenhuma.
+# Se a chamada for pipeline(10, f1, f2, f3), o resultado deve ser: f3(f2(f1(x))).
+def pipeline(x, *funcs):
+    for func in funcs:
+        x = func(x)
+    return x
+def f1(x):
+    return x + 1
+def f2(x):
+    return x * 2
+def f3(x):
+    return x ** 2
+print(pipeline(10, f1, f2, f3))
+print(pipeline(10, f2, f1))
+print(pipeline(10))
