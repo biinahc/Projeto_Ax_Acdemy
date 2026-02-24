@@ -163,3 +163,11 @@ def f3(x):
 print(pipeline(10, f1, f2, f3))
 print(pipeline(10, f2, f1))
 print(pipeline(10))
+
+
+#procedimento é uma função sem retorno, ou seja, que não tem a palavra-chave "return" em seu corpo.
+def saudacao_procedimento(nome):
+    print(f"Olá, {nome}!")
+
+saudacao_procedimento("João")
+
