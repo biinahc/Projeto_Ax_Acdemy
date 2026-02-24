@@ -121,6 +121,7 @@ print(potencia(**dicionario))
 # Função como parâmetro. Crie duas funções que calculem, respectivamente,
 # o dobro e o quadrado de um número. Crie outra função que receba como parâmetro um valor e uma função,
 # e que aplique essa função do parâmetro neste valor. Teste passado a função "dobro" e a função "quadrado".
+
 def dobro(x):
     return 2 * x
 
@@ -135,6 +136,7 @@ print(aplicar_funcao(5, quadrado))
 
 # Recursão. Crie uma função recursiva que receba um valor inteiro como parâmetro e 
 # implemente a operação de multiplicação somente com base na operação de adição.
+
 def multiplicacao(a, b):
     if b == 0:
         return 0
@@ -150,6 +152,7 @@ print(multiplicacao(5, -3))
 # Crie uma função chamada pipeline(x, *funcs) que aplique várias funções em sequência.
 # Ou seja, "*funcs" vai associar uma sequência de diversas funções, inclusive nenhuma.
 # Se a chamada for pipeline(10, f1, f2, f3), o resultado deve ser: f3(f2(f1(x))).
+
 def pipeline(x, *funcs):
     for func in funcs:
         x = func(x)
@@ -166,13 +169,13 @@ print(pipeline(10))
 
 
 #procedimento é uma função sem retorno, ou seja, que não tem a palavra-chave "return" em seu corpo.
+
 def saudacao_procedimento(nome):
     print(f"Olá, {nome}!")
 
 saudacao_procedimento("João")
 
 #escreva uma função que retorne o maior de dois numeros valores esperados:
-
 
 def maior(a, b):
     if a > b:
@@ -183,3 +186,24 @@ def maior(a, b):
 print(maior(5, 6))
 print(maior(2, 1))
 print(maior(7, 7))
+
+#escreva uma funcao que receba dois numeros e retorne true se o primeiro for maior que o segundo, e false caso contrário:
+
+
+def maior_que(a, b):
+    return a > b
+print(maior_que(8, 4))
+print(maior_que(7, 3))
+print(maior_que(5, 5))
+
+
+#escreva a funcao que receba o lado de um quadrado e retorne a area do quadrado:
+
+def area_quadrado(lado):
+    return lado ** 2
+print(area_quadrado(4))
+print(area_quadrado(9))
+print(area_quadrado(12))
+
+
+
